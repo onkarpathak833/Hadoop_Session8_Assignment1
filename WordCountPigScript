@@ -1,0 +1,15 @@
+grunt> LINE = LOAD '/home/acadgild/Onkar/session08/PigWords' AS (x:chararray);
+
+grunt> DUMP LINE:
+
+grunt> WORDS = FOREACH LINE GENERATE FLATTEN(TOKENIZE(x)) AS WORD;
+
+grunt> GRP = GROUP WORDS BY WORD;
+
+grunt> GRP_WORD = FOREACH GRP GENERATE group, COUNT(WORDS);
+
+grunt> DUMP GRP_WORD;
+
+
+
+
